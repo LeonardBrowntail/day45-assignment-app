@@ -1,4 +1,4 @@
-<h1 align="center">Day 45 Assignment Submission (Ongoing)</h1>
+<h1 align="center">Day 45 Assignment Submission (Finished)</h1>
 <p align="center">Aydin Ihsan Ibrahim Nurdin</p>
 
 ## Description
