@@ -1,12 +1,11 @@
-# Build the Next.js static export and deploy it to GitHub Pages.
-# Repo: farizkydy/cart-frontend  →  https://farizkydy.github.io/cart-frontend/
+# Build the Vite project and deploy it to GitHub Pages.
+# Repo: LeonardBrowntail/day45-assignment-app  →  https://leonardbrowntail.github.io/day45-assignment-app/
 #
 # One-time repo setup (Settings → Pages):
 #   "Build and deployment" → Source: **GitHub Actions**
 #
-# Relies on next.config.ts keeping:
-#   output: "export"                 # static export → ./out
-#   basePath: "/cart-frontend"    # must match the repo name / Pages URL
+# Relies on vite.config.js keeping:
+#   base: "/day45-assignment-app/"   # must match the repo name / Pages URL
 name: Deploy to GitHub Pages
 
 on:
@@ -34,13 +33,13 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22 # Next.js 16 requires Node >= 20.9
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build (static export to ./out)
+      - name: Build (output to ./dist)
         run: npm run build
 
       - name: Setup Pages
@@ -49,7 +48,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: out
+          path: dist
 
   deploy:
     needs: build
